@@ -1,6 +1,7 @@
 GeneBlog::Application.routes.draw do
 
   get '/posts' => 'posts#index'
+  get '/post/:id' => 'posts#show', as: 'post'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
