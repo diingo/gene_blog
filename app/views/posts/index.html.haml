@@ -1,4 +1,10 @@
-%h2 My Bloggidy Blog 
+
+
+%h1= "#{@name}'s Blog" 
 %p
   %strong this text is bolded
   %em this text is italicized
+
+- @posts.each do |t|
+  %h2= t.title
+  %p= t.body
