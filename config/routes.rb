@@ -5,9 +5,11 @@ GeneBlog::Application.routes.draw do
   get 'posts/new' => 'posts#new'
   post 'posts' => 'posts#create'
 
-  get 'posts/:id/edit' => 'posts#edit'
+  get 'post/:id/edit' => 'posts#edit', as: 'edit_post'
 
   put 'post/:id' => 'posts#update'
+
+  delete 'post/:id' => 'posts#destroy'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

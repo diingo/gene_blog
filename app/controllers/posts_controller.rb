@@ -66,4 +66,28 @@ class PostsController < ApplicationController
     # end
     
   end
+
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+
+    redirect_to posts_path
+
+  #    @product = Product.where(id: params[:id]).first
+  # @product.destroy
+
+  # respond_to do |format|
+  #   format.html { redirect_to products_url, notice: "Product was successfully deleted." }
+  #   format.json { head :no_content }
+  # end
+  end
 end
+
+
+
+
+
+
+
+
