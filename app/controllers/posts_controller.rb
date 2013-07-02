@@ -1,4 +1,8 @@
 class PostsController < ApplicationController
+ 
+
+
+
   def index
     @name = "Gene"
     @posts = Post.all
@@ -16,18 +20,18 @@ class PostsController < ApplicationController
     @post = Post.new(params[:post])
 # params = { :post => {:body: blah, :title}}
 
-    @post.save
-    redirect_to @post
+    # @post.save
+    # redirect_to @post
 
-    # respond_to do |format|
-    #   if @post.save
-    #     format.html { redirect_to @post}
-    #     format.json { render json: @post}
-    #   else
-    #     format.html { render action: "new"}
-    #     format.json { render json: @post.errors, status: :unprocessable_entity}
-    #   end
-    # end
+    respond_to do |format|
+      if @post.save
+        format.html { redirect_to @post}
+        format.json { render json: @post}
+      else
+        format.html { render action: "new"}
+        format.json { render json: @post.errors, status: :unprocessable_entity}
+      end
+    end
 
   end
 
@@ -72,6 +76,8 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
 
+
+
     redirect_to posts_path
 
   #    @product = Product.where(id: params[:id]).first
@@ -81,6 +87,7 @@ class PostsController < ApplicationController
   #   format.html { redirect_to products_url, notice: "Product was successfully deleted." }
   #   format.json { head :no_content }
   # end
+  # render /views/posts/destroy*
   end
 end
 

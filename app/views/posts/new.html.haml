@@ -1,1 +1,5 @@
+/ - if @post.errors.any?
+/   - @post.errors.full_messages do |msg|
+/     = msg
+
 = render partial: 'form'
