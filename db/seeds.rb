@@ -7,8 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-purple = Post.create([{title: 'wut wut'}, {body: "Here's a fresh body"}])
+purple = Post.create(title: 'wut wut', body: "Here's a fresh body")
 
-pink = Post.create([{title: "It's pink!"}, {body: "Here's a fresh body in pink"}])
+pink = Post.create(title: "It's pink!", body: "Here's a fresh body in pink")
 
-Post.create([{title: "no variable here!"}, {body: "Yet I'm still a seed"}])
+Post.create(title: "no variable here!", body: "Yet I'm still a seed")

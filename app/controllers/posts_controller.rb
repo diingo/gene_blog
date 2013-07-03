@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
   def index
     @name = "Gene"
-    @posts = Post.all
+    @posts = Post.order("lower(title) ASC").all
   end
 
   def show
@@ -28,7 +28,8 @@ class PostsController < ApplicationController
         format.html { redirect_to @post}
         format.json { render json: @post}
       else
-        format.html { render action: "new"}
+        flash[:notice] = "test flash notice"
+        format.html { render action: "new", notice: "Post could not be saved"}
         format.json { render json: @post.errors, status: :unprocessable_entity}
       end
     end
@@ -52,7 +53,8 @@ class PostsController < ApplicationController
         format.html { redirect_to @post, notice: 'Product was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit"}
+        flash[:notice] = "test flash notice"
+        format.html { render action: "edit",  notice: "Could not update"}
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end

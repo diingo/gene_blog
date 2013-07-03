@@ -1,6 +1,5 @@
 class Post < ActiveRecord::Base
-  validates :title, presence: true
-  validates :body, presence: true
+  validates_presence_of :body, :title, :author
 
-  attr_accessible :body, :title
+  attr_accessible :body, :title, :author
 end
