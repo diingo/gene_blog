@@ -1,5 +1,8 @@
-/ - if @post.errors.any?
-/   - @post.errors.full_messages do |msg|
-/     = msg
+- if @post.errors.any?
+  %h2= pluralize(@post.errors.count, "error")
+  %ul
+  - @post.errors.full_messages.each do |msg|
+    %li= msg
 
+%br
 = render partial: 'form'
